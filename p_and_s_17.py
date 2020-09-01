@@ -15,6 +15,8 @@ red_balls = balls['red']
 blue_balls = balls['blue']
 white_balls = balls['white']
 
+p_red = red_balls/total_balls
+
 
 
 
