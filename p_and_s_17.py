@@ -33,6 +33,8 @@ print(inside_parenthesis)
 #(not blue) or white, red and (not white or blue), red or not white,
 #(red and not white) or blue
 
+#all parentheses will be preceded by a logic statement
+
 
 
 
