@@ -1,13 +1,14 @@
 import random
 from matplotlib import pyplot
 import numpy
-from collections import Counter
+from scipy import optimize
+from astropy.modeling import models, fitting
 
 sums = []
-die_rolls = 10
+die_rolls = 2
 plot_range = die_rolls*6+1
 
-for i in range(0,100000):
+for i in range(0,1000):
 
 	rolls = []
 
@@ -28,8 +29,10 @@ for i in range(1,plot_range):
 	count = sums.count(i)
 	counts.append(count)
 
-print(counts)
-
 pyplot.plot(numpy.arange(1,plot_range),counts)
 pyplot.grid()
 pyplot.show()
+
+g_init = models.Gaussian1D(amplitude=1., mean=0, stddev=1.)
+fit_g = fitting.LevMarLSQFitter()
+g = fit_g(g_init, numpy.arange(1,plot_range), counts)
